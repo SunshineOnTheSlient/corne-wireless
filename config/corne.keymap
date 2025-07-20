@@ -104,7 +104,7 @@
 
             display-name = "sym";
             bindings = <
-&none    &kp GRAVE    &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LBKT   &kp LESS_THAN      &kp GREATER_THAN  &kp RBKT        &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp TILDE  &nonef
+&none    &kp GRAVE    &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LBKT   &kp LESS_THAN      &kp GREATER_THAN  &kp RBKT        &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp TILDE  &none
 &kt TAB  &kp PIPE     &kp COLON             &kp DOLLAR      &kp MINUS  &kp EXCLAMATION    &kp HASH          &kp PERCENT     &kp AMPERSAND    &kp SEMICOLON          &kp BSLH   &kt BACKSPACE
 &none    &kp AT_SIGN  &kp ASTERISK          &kp EQUAL       &kp PLUS   &kp QUESTION       &none             &kp UNDERSCORE  &none            &kp CARET              &kp SLASH  &none
                                             &kp LGUI        &trans     &kp SPACE          &kp RET           &trans          &kp RALT
