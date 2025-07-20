@@ -9,6 +9,17 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+
+/*                KEY POSITIONS
+
+  ╭─────────────────────╮ ╭─────────────────────╮
+  │  0  1  2  3  4  5   │ │  6  7  8  9 10 11   │
+  │ 12 13 14 15 16 17   │ │ 18 19 20 21 22 23   │
+  │ 24 25 26 27 28 29   │ │ 30 31 32 33 34 35   │
+  ╰───────╮ 36 37 38    │ │ 39 40 41   ╭────────╯
+          ╰─────────────╯ ╰────────────╯ */
+
+
     combos {
         compatible = "zmk,combos";
 
@@ -64,60 +75,65 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
             display-name = "Base";
             bindings = <
-&kp TAB    &kp Q            &kp W           &kp E        &kp R             &kp T            &kp Y      &kp U              &kp I        &kp O    &kp P               &kp BSPC
-&kp LCTRL  &hml LGUI A  &hml LALT S  &hml LCTRL D  &hml LSHIFT F  &kp G            &kp H      &hmr RSHIFT J  &hmr RCTRL K  &hmr RALT L    &hmr RGUI SQT  &kp SEMICOLON
-&kp LSHFT  &kp Z            &kp X           &kp C        &kp V             &kp B            &kp N      &kp M              &kp COMMA    &kp DOT  &kp FSLH            &kp ESC
-                                            &mo 3        &mo 1             &kp BACKSPACE    &kp SPACE  &mo 2              &caps_word
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &kp TAB       &kp Q          &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P        &kp BSPC
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+       &kp LCTRL   &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHIFT F     &kp G            &kp H      &hmr RSHIFT J &hmr RCTRL K  &hmr RALT L   &hmr RGUI SQT &kp SEMICOLON
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+       &kp LSHFT      &kp Z          &kp X         &kp C         &kp V         &kp B            &kp N          &kp M       &kp COMMA     &kp DOT        &kp FSLH      &kp ESC
+//  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
+                      			           &mo 3         &mo 1     &kp BACKSPACE       &kp SPACE       &mo 2      &caps_word
+//                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
 
         num {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            display-name = "num";
+            display-name = "Num";
             bindings = <
-&none  &kp DEL   &kp LS(TAB)  &kp COLON  &kp TAB    &kp BSPC     &kp PLUS   &kp N7  &kp N8    &kp N9  &kp MINUS  &none
-&none  &kp LGUI  &kp LALT     &kp LCTRL  &kp LSHFT  &kp SPACE    &kp STAR   &kp N4  &kp N5    &kp N6  &kp FSLH   &none
-&none  &none     &none        &none      &none      &kp ENTER    &kp EQUAL  &kp N1  &kp N2    &kp N3  &kp DOT    &none
-                              &none      &trans     &kp SPACE    &kp RET    &kp N0  &kp RALT
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+	&none 	      &kp DEL     &kp LS(TAB)    &kp COLON      &kp TAB      &kp BSPC          &kp PLUS       &kp N7        &kp N8        &kp N9       &kp MINUS       &none
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &none        &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &kp SPACE         &kp STAR       &kp N4        &kp N5        &kp N6       &kp FSLH        &none
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &none          &none         &none        &none          &none       &kp ENTER         &kp EQUAL      &kp N1        &kp N2        &kp N3       &kp DOT         &none
+//  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
+                                                  &none         &trans       &kp SPACE          &kp N0       &kp ENTER     &kp RALT
+//                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
             >;
         };
 
         sym {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            display-name = "sym";
+            display-name = "Sym";
             bindings = <
-&none    &kp GRAVE    &kp LEFT_PARENTHESIS  &kp LEFT_BRACE  &kp LBKT   &kp LESS_THAN      &kp GREATER_THAN  &kp RBKT        &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp TILDE  &none
-&kt TAB  &kp PIPE     &kp COLON             &kp DOLLAR      &kp MINUS  &kp EXCLAMATION    &kp HASH          &kp PERCENT     &kp AMPERSAND    &kp SEMICOLON          &kp BSLH   &kt BACKSPACE
-&none    &kp AT_SIGN  &kp ASTERISK          &kp EQUAL       &kp PLUS   &kp QUESTION       &none             &kp UNDERSCORE  &none            &kp CARET              &kp SLASH  &none
-                                            &kp LGUI        &trans     &kp SPACE          &kp RET           &trans          &kp RALT
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &none        &kp GRAVE     &kp LPAR    &kp LEFT_BRACE  &kp LBKT       &kp LT             &kp GT      &kp RBKT   &kp RIGHT_BRACE   &kp RPAR     &kp TILDE       &none
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+       &kt TAB       &kp PIPE      &kp COLON    &kp DOLLAR     &kp MINUS  &kp EXCLAMATION      &kp HASH     &kp PERCENT  &kp AMPERSAND &kp SEMICOLON   &kp BSLH    &kt BACKSPACE
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &none       &kp AT_SIGN  &kp ASTERISK    &kp EQUAL     &kp PLUS    &kp QUESTION          &none    &kp UNDERSCORE     &none       &kp CARET     &kp SLASH       &none
+//  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
+                                                 &kp LGUI       &trans       &kp SPACE          &kp RET       &trans       &kp RALT
+//                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
             >;
         };
 
         Nav {
-	    display-name = "nav";
+	    display-name = "Nav";
             bindings = <
-&trans  &kp LC(Y)  &kp PRINTSCREEN  &trans     &trans      &kt BACKSPACE    &kp DEL     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &kp LC(A)  &kp LALT         &kp LCTRL  &kp LSHFT   &kp SPACE        &kp ESC     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans
-&trans  &kp LC(Z)  &kp LC(X)        &kp LC(C)  &td_mPaste  &kp ENTER        &kp INSERT  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &bt BT_CLR
-                                    &trans     &trans      &trans           &trans      &trans        &trans
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &trans       &kp LC(Y)  &kp PRINTSCREEN    &trans       &trans     &kt BACKSPACE        &kp DEL    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &trans       &kp LC(A)     &kp LALT      &kp LCTRL     &kp LSHFT     &kp SPACE          &kp ESC      &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)    &td_mPaste     &kp ENTER        &kp INSERT     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &bt BT_CLR
+//  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
+                                                  &trans        &trans        &trans            &trans        &trans        &trans
+//                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
             >;
         };
 
