@@ -133,9 +133,9 @@
 	    display-name = "Nav";
             bindings = <
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &trans       &kp LC(Y)  &kp PRINTSCREEN    &none       &none       &kt BACKSPACE        &kp DEL    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+        &trans       &kp LC(Y)  &kp PRINTSCREEN    &none         &none     &kt BACKSPACE        &kp DEL    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &trans       &kp LC(A)     &kp LALT      &kp LCTRL     &kp LSHFT     &kp SPACE          &kp ESC      &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &trans
+        &trans       &kp LC(A)     &kp LALT      &kp LCTRL     &kp LSHFT     &kp SPACE         &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &kp ESC       &none
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &trans       &kp LC(Z)     &kp LC(X)     &kp LC(C)    &td_mPaste     &kp ENTER        &kp INSERT     &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &bt BT_CLR
 //  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
