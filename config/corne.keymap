@@ -84,9 +84,9 @@
             hold-trigger-key-positions = < 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 >; // List of keys on the left side of the keyboard
             hold-tri
 	};
-/ TODO: Finish magic shift setup. 
-/	magic_shift: magic_shift {
-/	    compatible = "zmk,behavior-hold-tap";
+/* TODO: Finish magic shift setup. 
+	magic_shift: magic_shift {
+	    compatible = "zmk,behavior-hold-tap";
 /	    #binding-cells = <2>;
 /	    flavor = "balanced";
 /	    tapping-term-ms = <200>;
@@ -99,6 +99,7 @@
 /	    bindings = <&shift_repeat>, <&caps_word;
 /	    mods = <(MOD_LSFT)>;
 /	};
+*/
     };
 
     keymap {
