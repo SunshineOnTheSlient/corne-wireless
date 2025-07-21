@@ -45,6 +45,13 @@
 	    require-prior-idle-ms = <150>;
 
         };
+	combo_bspc {
+	    bindings = <&kp BSPC>;
+	    key-positions = <8 9>;
+	    timeout-ms = <50>;
+	    require-prior-idle-ms = <150>;
+
+	};
     };
 
     behaviors {
@@ -75,8 +82,23 @@
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = < 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 >; // List of keys on the left side of the keyboard
-            hold-trigger-on-release;
-        };
+            hold-tri
+	};
+/ TODO: Finish magic shift setup. 
+/	magic_shift: magic_shift {
+/	    compatible = "zmk,behavior-hold-tap";
+/	    #binding-cells = <2>;
+/	    flavor = "balanced";
+/	    tapping-term-ms = <200>;
+/	    quick-tap-ms = <175>;
+/	    bindings = <&kp>, <&magic_shift_tap>;
+/	};
+/	magic_shift_tap: magic_shift_tap {
+/	    compatible = "zmk,behavior-mod-morph";
+/	    #binding-cells = <0>;
+/	    bindings = <&shift_repeat>, <&caps_word;
+/	    mods = <(MOD_LSFT)>;
+/	};
     };
 
     keymap {
@@ -92,7 +114,7 @@
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
        &kp LSHFT      &kp Z          &kp X         &kp C         &kp V         &kp B            &kp N          &kp M       &kp COMMA     &kp DOT        &kp FSLH      &kp ESC
 //  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
-                      			           &mo 3         &mo 1     &kp BACKSPACE       &kp SPACE       &mo 2      &caps_word
+                      			           &mo 3         &mo 1     &kp LSHFT          &kp SPACE      &mo 2        &caps_word
 //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -107,7 +129,7 @@
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &none          &none         &none        &none          &none       &kp ENTER         &kp EQUAL      &kp N1        &kp N2        &kp N3       &kp DOT         &none
 //  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
-                                                  &none         &trans       &kp trans          &kp N0       &kp ENTER     &kp RALT
+                                                  &none         &trans       &trans             &trans       &kp N0        &kp ENTER
 //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
             >;
@@ -123,7 +145,7 @@
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &none       &kp AT_SIGN  &kp ASTERISK    &kp EQUAL     &kp PLUS    &kp QUESTION          &none    &kp UNDERSCORE     &none       &kp CARET     &kp SLASH       &none
 //  ╰─────────────────────────────────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────────────────────────────────╯
-                                                 &kp LGUI       &trans       &kp trans          &kp trans     &trans       &kp RALT
+                                                 &kp LGUI       &trans       &trans             &trans        &trans       &kp RALT
 //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
             >;
@@ -133,7 +155,7 @@
 	    display-name = "Nav";
             bindings = <
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &trans       &kp LC(Y)  &kp PRINTSCREEN    &none         &none     &kt BACKSPACE        &kp DEL    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 
+        &trans       &kp LC(Y)  &kp PRINTSCREEN    &none         &none     &kt BACKSPACE        &kp DEL    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &trans       &kp LC(A)     &kp LALT      &kp LCTRL     &kp LSHFT     &kp SPACE         &kp LEFT      &kp DOWN       &kp UP       &kp RIGHT      &kp ESC       &none
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
